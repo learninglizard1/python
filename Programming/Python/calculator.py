@@ -4,8 +4,8 @@ import os
 import sys
 import math
 
-def addition (num1, num2):
-    return (num1 + num2)
+def addition (numbers):
+    return (numbers)
 
 def subtract (num1 , num2):
     return (num1 - num2)
@@ -60,12 +60,21 @@ def calculator():
             continue
         
         elif option == "1":
+            store = []
             while True:
                 try:
-                    num1 = float(input ("Enter your first number: "))
-                    num2 = float(input("Enter your second number:"))
-                    print(f"{num1} + {num2} = {addition(num1, num2)}.")
-                    input("Press enter to continue..")
+                    num1 = (input ("Enter a number to add: "))
+                    
+                    num1 = float(num1)
+
+                    store.append(num1)
+
+                    if num1 == 0:
+                        print(f"Total sum = {sum(store):.2f}.")
+                        input("Press enter to continue..")
+                        break
+                    else:
+                        print("enter another number to add or 0 to print the sum:")
                 except ValueError:
                     print("Only digits allowed.")
                     continue
