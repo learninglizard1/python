@@ -105,7 +105,7 @@ def calculator():
 
         elif option == "8":
             num1 = int(input ("Enter a number to find if its odd or even: "))
-            if num1 %2 == 0:
+            if num1 % 2 == 0:
                 print (f"{num1} is an Even number.")
             else:
                 print (f"{num1} is an Odd number.")
