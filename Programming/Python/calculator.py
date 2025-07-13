@@ -48,7 +48,7 @@ def calculator():
         option = input("\nPlease select an option.").strip()
     
         os.system ('cls')
-
+        
         if option == "":
             print ("Please enter a number between 1 to 5 to select from the given menu.")
             input ("Press enter to continue...")
@@ -60,56 +60,96 @@ def calculator():
             continue
         
         elif option == "1":
-            num1 = int(input ("Enter your first number: "))
-            num2 = int(input("Enter your second number:"))
-            print(f"{num1} + {num2} = {addition(num1, num2)}.")
-            input("Press enter to continue..")
+            while True:
+                try:
+                    num1 = int(input ("Enter your first number: "))
+                    num2 = int(input("Enter your second number:"))
+                    print(f"{num1} + {num2} = {addition(num1, num2)}.")
+                    input("Press enter to continue..")
+                except ValueError:
+                    print("Only digits allowed.")
+                    continue
 
         elif option == "2":
-            num1 = int(input ("Enter your first number: "))
-            num2 = int(input("Enter your second number:"))
-            print(f"{num1} - {num2} = {subtract(num1, num2)}.")
-            input("Press enter to continue..")
+            while True:
+                try:
+                    num1 = int(input ("Enter your first number: "))
+                    num2 = int(input("Enter your second number:"))
+                    print(f"{num1} - {num2} = {subtract(num1, num2)}.")
+                    input("Press enter to continue..")
+                except ValueError:
+                    print("Only digits allowed.")
+                    continue
 
         elif option == "3":
-            num1 = int(input ("Enter your first number: "))
-            num2 = int(input("Enter your second number:"))
-            print(f"{num1} * {num2} = {multiply(num1, num2)}.")
-            input("Press enter to continue..")
+            while True:
+                try:
+                    num1 = int(input ("Enter your first number: "))
+                    num2 = int(input("Enter your second number:"))
+                    print(f"{num1} * {num2} = {multiply(num1, num2)}.")
+                    input("Press enter to continue..")
+                except ValueError:
+                    print("Only digits allowed.")
+                    continue
 
         elif option == "4":
-            num1 = int(input ("Enter your first number: "))
-            num2 = int(input("Enter your second number:"))
-            
-            if (num2 == 0):
-                print ("You cant divide a number by 0. Returning back to the menu")
-                input("Press enter to continue...")
-            else:
-                print(f"{num1} / {num2} = {divide(num1, num2):.2f}.")
-            input("Press enter to continue..")      
+            while True:
+                try:
+                    num1 = int(input ("Enter your first number: "))
+                    num2 = int(input("Enter your second number:"))
+                    
+                    if (num2 == 0):
+                        print ("You cant divide a number by 0. Returning back to the menu")
+                        input("Press enter to continue...")
+                    else:
+                        print(f"{num1} / {num2} = {divide(num1, num2):.2f}.")
+                    input("Press enter to continue..")      
+                except ValueError:
+                    print("Only digits allowed.")
+                    continue
 
         elif option == "5":
-            num1 = int(input ("Enter a number:"))
-            print(f"The exponent of num1 is {exponent(num1)}")
-            input("Press enter to continue..")
+            while True:
+                try:
+                    num1 = int(input ("Enter a number:"))
+                    print(f"The exponent of num1 is {exponent(num1)}")
+                    input("Press enter to continue..")
+                except ValueError:
+                    print("Only digits allowed.")
+                    continue
 
         elif option == "6":
-            r = int(input ("Enter a radius::"))
-            print(f"The area of a circle is {pi(r):.2f}")
-            input("Press enter to continue..")
+            while True:
+                try:
+                    r = int(input ("Enter a radius::"))
+                    print(f"The area of a circle is {pi(r):.2f}")
+                    input("Press enter to continue..")
+                except ValueError:
+                    print("Only digits allowed.")
+                    continue
 
         elif option == "7":
-            num1 = int(input ("Enter a number::"))
-            print(f"The square root of {num1} is {square(num1)}")
-            input("Press enter to continue..")
+            while True:
+                try:
+                    num1 = int(input ("Enter a number::"))
+                    print(f"The square root of {num1} is {square(num1)}")
+                    input("Press enter to continue..")
+                except ValueError:
+                    print("Only digits allowed.")
+                    continue
 
         elif option == "8":
-            num1 = int(input ("Enter a number to find if its odd or even: "))
-            if num1 % 2 == 0:
-                print (f"{num1} is an Even number.")
-            else:
-                print (f"{num1} is an Odd number.")
-            input("Press Enter to continue...")
+            while True:
+                try:
+                    num1 = int(input ("Enter a number to find if its odd or even: "))
+                    if num1 %2 == 0:
+                        print (f"{num1} is an Even number.")
+                    else:
+                        print (f"{num1} is an Odd number.")
+                    input("Press Enter to continue...")
+                except ValueError:
+                    print("Only digits allowed.")
+                    continue
 
         elif option == "9":
             sys.exit()
