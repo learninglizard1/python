@@ -1247,4 +1247,34 @@ except ZeroDivisionError as error:
      print(error)
 
 finally:
+
     print('Finishing up.')
+
+
+
+
+
+
+#Instantiating objects of classes
+
+class Shape:
+    pass
+
+#instantiate our variables
+square = Shape()
+triangle = Shape()
+pentagon = Shape()
+
+
+#Set the member variables
+square.name = "Square"
+triangle.name = "Triangle"
+pentagon.name  = "Pentagon"
+square.sides = 4
+triangle.sides = 3
+pentagon.sides = 5
+
+#print the method
+print (f"{square.name} has {square.sides} sides.")
+print (f"{triangle.name} has {triangle.sides} sides.")
+print (f"{pentagon.name} has {pentagon.sides} sides.")
