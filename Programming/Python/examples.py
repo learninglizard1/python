@@ -23,3 +23,15 @@ import kg_convertor
 print(kg_convertor.kg_to_gram(4))
 print(kg_convertor.kg_to_lb(4))
 print(kg_convertor.kg_to_stone(4))
+
+
+#creating shorter names for the modules
+#import kg_convertor as kg
+
+#we can call out the functions using 'kg' alias
+
+# example
+# print (kg.kg_to_gram(5))
+# print (kg.kg_to_lb(5))
+# print (kg.kg_to_stone(5))
+
