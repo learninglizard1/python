@@ -1315,3 +1315,31 @@ monkey = Animal("Baadar", 1, "banana", 2)
 print(f"{lion.name} has {lion.no_of_legs} legs ")
 print(f"{tiger.name} has {tiger.no_of_legs} legs ")
 print(f"{monkey.name} has {monkey.no_of_legs} legs ")
+
+
+
+
+# creating a class
+
+class Shape:
+
+#adding constructor 
+    def __init__(self, name, sides):
+        self.name = name
+        self.sides = sides
+
+    def message(self):
+        print (f"{self.name} has {self.sides} sides.")
+
+#adding instances
+square = Shape("Square", 4)
+triangle = Shape("Triangle", 3)
+pentagon = Shape("Pentagon", 5)
+
+#calling output
+square.message()
+triangle.message()
+pentagon.message()
+
+
+
