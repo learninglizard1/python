@@ -111,11 +111,9 @@ elif option3 == "2":
 elif option3 == "3":
     pizza_size = "Large"
 
-else:
-    print ("Invalid")
-
 
 
 order = Pizza (option1, pizza_name, pizza_type, pizza_size)
+
 
 order.message()
