@@ -185,3 +185,28 @@ btn_clicker.grid (row= 1 , column= 0)
 
 root.mainloop()
 
+
+
+
+
+#messagebox yes or no to exit the program.
+#import tkinter
+
+import tkinter as tk
+from tkinter import messagebox
+root = tk.Tk()
+
+
+def click_function ():
+    answer = messagebox.askyesno("Exit", "Do you want to exit the program?")
+    if answer:
+        root.destroy()
+
+
+btn_clicker = tk.Button(root, text = "Close Program." , command= click_function)
+
+
+
+btn_clicker.grid (row= 0, column= 0)
+
+root.mainloop()
