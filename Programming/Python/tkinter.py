@@ -137,3 +137,51 @@ root.mainloop()
 
 
 
+#learning about buttons in Tkinter
+#import tkinter
+
+import tkinter as tk
+from tkinter import messagebox
+root = tk.Tk()
+
+
+def hello_click():
+    messagebox.showinfo ("", "You clicked the button.")
+
+
+
+btn_clicker = tk.Button (root, text = "Click me", command = hello_click)
+
+
+btn_clicker.grid (row = 0, column = 0 )
+
+
+root.mainloop()
+
+
+
+#learning more about buttons and calling them out 
+#import tkinter
+
+import tkinter as tk
+from tkinter import messagebox
+root = tk.Tk()
+
+
+def my_click_fuction():
+    messagebox.showinfo ("", "Hello, " + entry_username.get())
+
+
+my_entry_var = ""
+
+label_username = tk.Label(root, text= "Enter name:")
+entry_username = tk.Entry(root, textvariable= my_entry_var)
+btn_clicker = tk.Button (root, text = "Submit", command= my_click_fuction)
+
+label_username.grid (row = 0, column= 0)
+entry_username.grid (row = 0, column= 1)
+btn_clicker.grid (row= 1 , column= 0)
+
+
+root.mainloop()
+
