@@ -100,3 +100,40 @@ root.mainloop()
 
 
 
+
+#creating my first  label and entry
+#importing tkinter
+import tkinter as tk
+
+
+root = tk.Tk()
+root.title("Scholarship Form") #Title of the menu
+
+#creating variable to store variables
+
+my_fvar = ""
+my_mvar = ""
+my_lvar = ""
+
+label_firstname = tk.Label (root, text = "First name:")
+label_middlename = tk.Label (root, text = "Middle name:")
+label_lastname = tk.Label (root, text = "Last name:")
+
+entry1 = tk.Entry ( root, textvariable = my_fvar)
+entry2 = tk.Entry ( root, textvariable = my_mvar)
+entry3 = tk.Entry ( root, textvariable = my_lvar)
+
+
+label_firstname.grid ( row = 0 , column = 0,)
+label_middlename.grid(  row = 1, column  = 0)
+label_lastname.grid( row = 2, column  = 0)
+
+entry1.grid ( row = 0 , column  = 1)
+entry2.grid ( row = 1, column  = 1)
+entry3.grid ( row = 2, column  = 1)
+
+#tkinter main loop
+root.mainloop()
+
+
+
