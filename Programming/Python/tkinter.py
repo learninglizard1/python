@@ -188,7 +188,6 @@ root.mainloop()
 
 
 
-
 #messagebox yes or no to exit the program.
 #import tkinter
 
@@ -208,5 +207,61 @@ btn_clicker = tk.Button(root, text = "Close Program." , command= click_function)
 
 
 btn_clicker.grid (row= 0, column= 0)
+
+root.mainloop()
+
+
+
+
+#learning checkboxes
+#import tkinter
+import tkinter as tk
+from tkinter import messagebox
+root = tk.Tk()
+root.title("Shop") #title 
+
+def my_clicked ():
+    total = 0
+
+    if var1.get():
+        total += potion_cost
+    
+    if var2.get():
+        total += sword_cost
+
+    if var3.get():
+        total += elixir_cost
+    
+    if var4.get():
+        total += rope_cost
+
+    if total == 0:
+        messagebox.showinfo ("Shop", "No items selected!\nPlease check the boxes to purchase.")
+    else:
+        messagebox.showinfo ("Shop", f"Purchase successful!\nThe total cost for your purchase is {total}.")
+
+potion_cost = 10
+sword_cost = 20
+elixir_cost = 100
+rope_cost = 5
+
+var1 = tk.IntVar()
+var2 = tk.IntVar()
+var3 = tk.IntVar()
+var4 = tk.IntVar()
+
+
+
+potion = tk.Checkbutton(root , text= f"Potion {potion_cost} gold", variable= var1)
+potion.grid (row= 0 , column= 0)
+sword = tk.Checkbutton(root, text= f"Sword {sword_cost} gold", variable= var2)
+sword.grid (row= 1, column= 0)
+elixir = tk.Checkbutton(root, text= f"Elixir {elixir_cost} gold ", variable= var3)
+elixir.grid (row= 2, column= 0)
+rope = tk.Checkbutton(root, text= f"Rope {rope_cost} gold", variable= var4)
+rope.grid (row= 3, column= 0)
+button = tk.Button (root, text= "Submit", command= my_clicked)
+button.grid (row= 4, column= 0 , padx =  5, pady = 5)
+
 
 root.mainloop()
