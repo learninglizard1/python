@@ -1,4 +1,4 @@
-#LEARNING HOW TO OPEN A FILE USING PYTHON
+#LEARNING HOW TO OPEN A FILE USING PYTHON ( reading and writing)
 
 # Read file example
 
@@ -115,5 +115,30 @@ with open(file_path, "r", encoding= "UTF-8") as f:
         print(read)
 
 
+
+
+
+# Write file example
+
+# Import os the same as with reading
+import os
+
+file_path = ".\\education_journey.txt"
+
+# Open the file: this will create a new file with this name or overwrite if it exists
+# Notice the "w" for write
+with open(file_path, "w") as f:
+    f.write("Hello everyone!")
+    f.write("What a lovely day")
+
+# Append to an existing file
+# Notice the "a" for append is used instead of "w"
+with open(file_path, "a") as f:
+    f.write("It would be nice to go for a walk")
+    f.write("Maybe I should take my bike!")
+
+# Open the file to read and show the contents of the file
+with open(file_path, "r") as f:
+    print(f.read())
 
 
