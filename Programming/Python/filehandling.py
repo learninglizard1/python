@@ -142,3 +142,20 @@ with open(file_path, "r") as f:
     print(f.read())
 
 
+
+# Writelines example
+
+import os
+
+file_path = ".\\example.txt"
+
+some_lines = ["Apple\n", "Banana\n", "Carrot\n", "Daffodil\n", "Elderberry\n"] #adding \n to start in a new line
+
+# Write a new file using "w"
+with open(file_path, "w") as f:
+    f.writelines(some_lines)
+
+# Open the file to read and show the contents of the file
+with open(file_path, "r") as f:
+    print(f.read())
+
