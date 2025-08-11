@@ -159,3 +159,21 @@ with open(file_path, "w") as f:
 with open(file_path, "r") as f:
     print(f.read())
 
+
+
+
+#exception handling with files
+import os
+
+file_path = ".\\information.txt"
+
+# Try...except example
+try:
+    # Any code placed in the try will attempted to run
+    # If an error is found, run the code in except and show an error
+    with open(file_path, "r", encoding="UTF-8") as f:
+        print(f.read())
+except:
+    # An error has occurred, display a message to the user
+    print("Error: File does not exist")
+
