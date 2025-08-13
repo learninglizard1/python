@@ -82,3 +82,39 @@ def test_getaverage():
     assert grading.get_average(R) == 2.0
 
 test_getaverage()
+
+
+
+
+
+#GROUPING TESTS
+#The xfail test will still run but will not display any results. 
+#The skip test will be completely skipped and not run at all.
+
+import pytest
+import grading
+
+# Using a marker
+@pytest.mark.get_average
+def test_average1():
+    # Simple example list
+    # Sum is 210
+    # The average should be 35
+    R = [10,20,30,40,50,60]
+    assert grading.get_average(R) == 35
+
+# No marker used
+def test_average2():
+    # Only one value, the result should be 50
+    R = [50]
+    assert grading.get_average(R) == 50
+
+@pytest.mark.xfail(reason= "This test will run but not be part of the results")
+def test_average3():
+    R = [10,20,30,40]
+    assert grading.get_average(R) == 25
+
+@pytest.mark.skip(reason= "This test isn't needed right now")
+def test_average4():
+    R = [10,20,30,110]
+    assert grading.get_average(R) == 42.5
