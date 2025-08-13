@@ -118,3 +118,24 @@ def test_average3():
 def test_average4():
     R = [10,20,30,110]
     assert grading.get_average(R) == 42.5
+
+
+
+
+
+
+#TEST EXCEMPTIONS
+# test_grading.py
+
+import pytest
+import grading
+
+# An example of checking for a specific exception
+def test_exceptions():
+    R = []      # In our code, we made it so if the list is empty it won't run
+                # But if someone edited the code later and removed this
+                # We would see this test fail, which alerts us something has gone wrong
+
+    # Here we can use provide the exception
+    with pytest.raises(ZeroDivisionError):
+        grading.get_average(R)
