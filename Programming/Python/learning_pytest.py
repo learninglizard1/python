@@ -1,4 +1,27 @@
 
+#how it works
+def test_<name of function to test>():
+
+# 1. code to setup the arguments to the function
+# - test data
+# - mocks
+# - connection to database
+# - network connections
+# - etc.
+
+# 2. The actual test of the function using the test data
+assert <module name>.<function to test>(<test data)) = = <expected result>
+
+# 3. The test teardown
+# - close database or network connections
+# - release any memory used
+# - remove any objects create
+# - remove any mocks
+# - etc.
+
+
+
+
 #EXAMPLE 1
 #grading.py
 
