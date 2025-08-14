@@ -238,4 +238,22 @@ with open(file_path, "r") as f:
 
 
 
+#to eliminate error and skip empty lines
+# Working with CSV
+
+import os
+import csv
+
+file_path = ".\\biostats.csv"
+
+# Open file again in read mode like usual
+with open(file_path, "r") as f:
+    # This time we use the csv reader function to open it
+    our_csv_file = csv.reader(f)
+
+    # Print only the first column - name
+    for row in our_csv_file:
+        if(len(row) <= 0):
+            continue
+        print(row[0])
 
