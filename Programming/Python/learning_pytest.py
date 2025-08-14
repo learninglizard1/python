@@ -139,3 +139,7 @@ def test_exceptions():
     # Here we can use provide the exception
     with pytest.raises(ZeroDivisionError):
         grading.get_average(R)
+
+
+
+
