@@ -2,10 +2,8 @@
 # _____________________________----
 # Imports
 # _____________________________----
-
 import tkinter
 from tkinter import messagebox
-
 
 # _____________________________----
 # Tkinter setup
@@ -14,11 +12,9 @@ from tkinter import messagebox
 window = tkinter.Tk()
 window.title("The Aurora Archive")
 
-
 # _____________________________----
 # Variables
 # _____________________________----
-
 
 plan_standard = "Standard"
 plan_premium = "Premium"
@@ -49,7 +45,6 @@ discount = 0.10
 
 # Variables that store the results of the elements
 
-
 membership_plan = tkinter.StringVar(window, plan_standard)      # Selected membership type
 payment_plan = tkinter.StringVar(window, plan_monthly)          # Duration of payment
 extra1 = tkinter.BooleanVar(window, False)                      # Optional extra 1
@@ -57,8 +52,6 @@ extra2 = tkinter.BooleanVar(window, False)                      # Optional extra
 extra3 = tkinter.BooleanVar(window, False)                      # Optional extra 3
 extra4 = tkinter.BooleanVar(window, False)                      # Optional extra 4
 has_library_card = tkinter.BooleanVar(window, False)            # Library Card
-
-
 
 
 # _____________________________----
@@ -275,7 +268,6 @@ def clearform():
     label_total_cost_annual.config(text= "--")
     label_total_cost_discount.config(text= "--")
     label_total_cost_total.config(text= "--")
-
 
 
 #reset function
