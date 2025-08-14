@@ -177,3 +177,65 @@ except:
     # An error has occurred, display a message to the user
     print("Error: File does not exist")
 
+
+
+
+
+
+#--------------------------WORKING WITH CSV FILES ----------------------------------
+#
+#
+#
+#Example 1
+# Working with CSV
+
+# Imports
+import os
+import csv      # Include csv to allow useful functions for csv files
+
+file_path = ".\\biostats.csv"
+
+# Open file to read as we have normally done so far
+with open(file_path, "r") as f:
+    # Print as a normal text file
+    print(f.read())
+
+# Note: the file will have closed since the block has ended
+
+# Open file again in read mode like usual
+with open(file_path, "r") as f:
+    # This time we use the csv reader function to open it
+    # Note: The variable name can be anything
+    our_csv_file = csv.reader(f)
+
+    # Print all the rows in our file
+    for row in our_csv_file:
+        # The row will show a list of the items in the row
+        print(row)
+
+
+
+
+#example 2
+# Working with CSV
+
+import os
+import csv
+
+file_path = ".\\biostats.csv"
+
+# Open file again in read mode like usual
+with open(file_path, "r") as f:
+    # This time we use the csv reader function to open it
+    our_csv_file = csv.reader(f)
+
+    # Print only the first column - name
+    for row in our_csv_file:
+        print(row[0]) 
+
+# NOTE: You will encounter an error "list index out of range"
+# This occurs because the biostats.csv file has blank entries at the end of the file
+
+
+
+
