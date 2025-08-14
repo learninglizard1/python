@@ -257,3 +257,52 @@ with open(file_path, "r") as f:
             continue
         print(row[0])
 
+
+
+###writing in csv file####
+#
+#
+# Working with CSV
+
+import os
+import csv
+
+file_path = ".\\biostats.csv"
+
+# Remember to use the "a" when appending data
+with open(file_path, "a") as f:
+    # You don't have to specify a delimiter since comma is the default but you can if you want to
+    CSV = csv.writer(f, delimiter=',') 
+    CSV.writerow(['John', 'M', 29, 71, 176])
+    CSV.writerow(['Mary', 'F', 28, 65, 131])
+
+
+
+
+#using csv as a dictionary
+
+# Working with CSV
+
+import os
+import csv
+
+file_path = ".\\new_biostats.csv"
+
+# Remember to use the "w" when creating a new file
+with open(file_path, "w") as f:
+    # Define our column names, you can use single or double quotes like any string
+    keys = ['Name','Gender','Age','Height (in)','Weight (lbs)']
+    # Create a variable and use the DictWriter() function
+    # You can name the variable anything, CSV is used here for convenience
+    # fieldnames=keys is the parameter to use the list we defined earlier as the column names
+    CSV = csv.DictWriter(f, fieldnames=keys)
+    # Add column names in the CSV file first
+    CSV.writeheader() 
+    # Write two new rows to the file
+    CSV.writerow({'Name': 'Joes', 'Gender':'M', 'Age':29, 'Height (in)':71, 'Weight (lbs)': 176})
+    CSV.writerow({'Name': 'Blog', 'Gender':'F', 'Age':28, 'Height (in)':65, 'Weight (lbs)': 131})
+
+
+
+
+
