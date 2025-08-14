@@ -304,5 +304,27 @@ with open(file_path, "w") as f:
 
 
 
+#
+# Writing to a file to create a CSV 
+#
+import os 
+
+ 
+file_path = ".\\example.txt" 
+
+ 
+# Write a new file using "w" 
+with open(file_path, "w") as f: 
+    # We simply write to the file like normally, except we just add 
+    # the comma in where we need it, creating a CSV file we can use later 
+    # You can break it up like this or write parts or the whole line at once 
+    f.writelines("John,") 
+    f.writelines("Smith,") 
+    f.writelines("23,") 
+    f.writelines("Hamilton,") 
+    f.writelines("555-3958") 
+ 
+
+#  output = John,Smith,23,Hamilton,555-3958
 
 
