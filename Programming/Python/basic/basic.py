@@ -1247,4 +1247,98 @@ except ZeroDivisionError as error:
      print(error)
 
 finally:
+
     print('Finishing up.')
+
+
+
+
+
+
+#Instantiating objects of classes
+
+class Shape:
+    pass
+
+#instantiate our variables
+square = Shape()
+triangle = Shape()
+pentagon = Shape()
+
+
+#Set the member variables
+square.name = "Square"
+triangle.name = "Triangle"
+pentagon.name  = "Pentagon"
+square.sides = 4
+triangle.sides = 3
+pentagon.sides = 5
+
+#print the method
+print (f"{square.name} has {square.sides} sides.")
+print (f"{triangle.name} has {triangle.sides} sides.")
+print (f"{pentagon.name} has {pentagon.sides} sides.")
+
+
+
+##############################
+# Start of the animal class
+
+# Define our class
+class Animal:
+
+    # Constructor (__init__ stand for initialising)
+    def __init__(self, animal_name, animal_age, animal_food, animal_legs):
+        self.name = animal_name
+        self.age = animal_age
+        self.food = animal_food
+        self.no_of_legs = animal_legs
+
+    def cleaned(self):
+        print("getting cleaned!!!")
+
+    def fed(self):
+        print("getting fed!!!")                  
+
+    def immunized(self):
+        print("getting immunized!!!")
+
+# End of the Animal class
+##############################
+
+# Creating different instances using our constructor
+lion = Animal("Simba", 2, "meat", 4)
+tiger = Animal("Haguwa", 3, "meat", 4)
+monkey = Animal("Baadar", 1, "banana", 2)
+
+# Display
+print(f"{lion.name} has {lion.no_of_legs} legs ")
+print(f"{tiger.name} has {tiger.no_of_legs} legs ")
+print(f"{monkey.name} has {monkey.no_of_legs} legs ")
+
+
+
+
+# creating a class
+
+class Shape:
+
+#adding constructor 
+    def __init__(self, name, sides):
+        self.name = name
+        self.sides = sides
+
+    def message(self):
+        print (f"{self.name} has {self.sides} sides.")
+
+#adding instances
+square = Shape("Square", 4)
+triangle = Shape("Triangle", 3)
+pentagon = Shape("Pentagon", 5)
+
+#calling output
+square.message()
+triangle.message()
+pentagon.message()
+
+
