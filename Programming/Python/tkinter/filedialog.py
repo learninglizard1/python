@@ -114,25 +114,3 @@ help_menu.add_command(label ="About.....", command=menu_help_about)
 
 root.mainloop()
 
-
-
-
-
-        filetypes=filetypes)
-
-    showinfo(
-        title='Selected Files',
-        message=filenames
-    )
-
-
-# open button
-open_button = ttk.Button(
-    root,
-    text='Open Files',
-    command=select_files
-)
-
-open_button.pack(expand=True)
-
-root.mainloop()
