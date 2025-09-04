@@ -53,3 +53,69 @@ if(not dbconnect()):
 
 # Close the database connection
 conn.close()
+
+
+
+#
+#
+#
+# IMPORTING FROM A CSV FILE
+
+import sqlite3
+from sqlite3 import Error
+import csv
+
+def dbconnect():
+    global conn
+    try:
+        conn=sqlite3.connect("peoples.db")
+    except Error as e:
+        print (e)
+        return None
+    return conn
+
+conn = None
+
+if (not dbconnect()):
+    print ("Failed to connect to the database. Exiting program.")
+    exit()
+
+
+
+c= conn.cursor()
+
+query = """
+CREATE TABLE IF NOT EXISTS People(
+    ID INTEGER PRIMARY KEY,
+    First_Name TEXT NOT NULL,
+    Last_Name TEXT NOT NULL,
+    Gender TEXT NOT NULL,
+    Age INTEGER NOT NULL,
+    Email TEXT NOT NULL,
+    Phone TEXT NOT NULL,
+    Occupation TEXT NOT NULL,
+    Martial_Status TEXT NOT NULL,
+    Number_of_Children INTEGER NOT NULL
+)
+"""
+c.execute(query)
+
+csv_file = 'persons.csv'
+
+with open(csv_file, 'r') as file:
+    reader = csv.reader(file)
+
+    for row in reader:
+        c.execute("""
+            INSERT INTO people (First_Name, Last_Name, Gender, Age, Email, Phone, Occupation, Martial_Status, Number_of_Children)
+            VALUES
+                  ( ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                  
+        """, row)
+
+conn.commit()
+conn.close()
+
+
+
+
