@@ -1,1 +1,55 @@
 
+#CONNECTING TO A DATABASE
+#
+#
+# Import SQLite3 module
+import sqlite3
+
+# Connect to the database, store access to this in a variable
+# You can name this variable something else like db_connection for example
+conn = sqlite3.connect("yourdatabase.db")
+
+# <Our code that does stuff with the database>
+
+# Close the database connection
+# Just like when working with files, you want to close the 
+# connection when we're done
+conn.close()
+
+
+
+
+#ERROR CHECKING CONNECTION TO A SQL DATABASE
+#
+# Import SQLite3 module and the SQLite3 error module
+import sqlite3
+from sqlite3 import Error
+
+# Connect to the database, store access to this in a variable
+def dbconnect():
+    global conn
+    try:
+        # Attempt connection
+        conn = sqlite3.connect("gym_database.db" )
+    except Error as e:
+        # Print the error message that appears
+        print(e)
+        return None         # Connection failed
+    return conn             # Connection successful
+
+# Define our program variables here
+# We will use the database connection through the program
+# so we want to make it a global
+conn = None             # Set it to None by default since it hasn't connected yet
+
+# Attempt to connect to database, this will also set conn if it's successful
+# NOTE: We could also call this when defining conn if you wanted
+if(not dbconnect()):
+    # Connection to database failed, close the program
+    print("Database connection failed")
+    exit
+
+# <Our code that does stuff with the database>
+
+# Close the database connection
+conn.close()
