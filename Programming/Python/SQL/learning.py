@@ -145,6 +145,86 @@ with open(csv_file, 'r') as file:
 conn.commit()
 conn.close()
 
+#
+#
+#
+#another approach   
+#
+import sqlite3 
+from sqlite3 import Error
+import csv
 
+def dbconnect():
+    global conn 
+    try:
+        conn = sqlite3.connect("testssss.db")
+    except Error as e:
+        print (e)
+        return None
+    return conn
+
+
+conn = None
+
+if (not dbconnect()):
+    print ("Couldnot locate any database. Exiting program.")
+    exit()
+
+c = conn.cursor()
+
+query = """
+CREATE TABLE IF NOT EXISTS TableName(
+    ID INTEGER PRIMARY KEY,
+    First_Name TEXT NOT NULL,
+    Last_Name TEXT NOT NULL,
+    Gender TEXT NOT NULL,
+    Age INTEGER NOT NULL,
+    Email TEXT NOT NULL,
+    Phone TEXT NOT NULL,
+    Occupation TEXT NOT NULL,
+    Martial_Status TEXT NOT NULL,
+    Number_of_Children INTEGER NOT NULL
+)
+"""
+
+c.execute(query)
+
+query = ""  ### can be used to reassign value if we use this variable again ###
+try:
+    with open ("persons.csv") as file:
+        reader = csv.reader (file)
+        for read in reader:
+                TEST = f"""
+                INSERT INTO TableName (
+                First_Name,
+                Last_Name,
+                Gender,
+                Age,
+                Email,
+                Phone,
+                Occupation,
+                Martial_Status,
+                Number_of_Children
+                )
+
+                VALUES (
+                '{read[0]}',
+                '{read[1]}',
+                '{read[2]}',
+                '{read[3]}',
+                '{read[4]}',
+                '{read[5]}',
+                '{read[6]}',
+                '{read[7]}',
+                '{read[8]}'            
+                );
+                """
+                c.execute (TEST)
+except:
+    print("Failed to locate file.")
+
+    
+conn.commit()
+conn.close()
 
 
