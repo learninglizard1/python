@@ -241,3 +241,121 @@ conn.commit()
 conn.close()
 
 
+
+
+##-------------------------------------------------------------------------------------------------------------
+
+##UPDATING DB
+
+# Using multi-line
+UPDATE Fruit
+        SET
+            Taste = 'Sweet and creamy'
+        WHERE
+            ID = '2'
+        ;
+
+# Using a single line
+UPDATE Fruit SET Taste = 'Sweet and creamy' WHERE ID = '2';
+
+
+import sqlite3 
+from sqlite3 import Error
+import csv
+
+def dbconnect():
+    global conn 
+    try:
+        conn = sqlite3.connect("testssss.db")
+    except Error as e:
+        print (e)
+        return None
+    return conn
+
+
+conn = None
+
+if (not dbconnect()):
+    print ("Couldnot locate any database. Exiting program.")
+    exit()
+
+c = conn.cursor()
+
+
+chin = """
+    UPDATE TableName
+    SET 
+        Martial_Status = "Married",
+        First_Name = "Rosie",
+        Number_of_Children = "2"
+    WHERE
+        ID = '4'
+    ;
+    """
+c.execute (chin)
+
+conn.commit()
+conn.close()
+
+###-----------------------------------------------------------------------------------------------------
+##
+#
+#DELETING FROM DB
+
+DELETE FROM People
+        WHERE
+            ID = '2'
+        ;
+
+#Delete all rows of married people:
+#
+#DELETE FROM People WHERE Marital_Status = 'Married';
+#
+#Delete all people with more than three children:
+#
+#DELETE FROM People WHERE Number_of_Children > '3';
+#
+#Delete all people that are either an electrician or chemist:
+#
+#DELETE FROM People WHERE Occupation = 'Electrician' OR Occupation = 'Chemist';
+#
+#Delete all people who are male and have no children:
+#
+#DELETE FROM People WHERE Gender = 'Male' AND Number_of_Children = '0';
+
+
+#DELETING FROM DB
+
+import sqlite3 
+from sqlite3 import Error
+import csv
+
+def dbconnect():
+    global conn 
+    try:
+        conn = sqlite3.connect("testssss.db")
+    except Error as e:
+        print (e)
+        return None
+    return conn
+
+
+conn = None
+
+if (not dbconnect()):
+    print ("Couldnot locate any database. Exiting program.")
+    exit()
+
+c = conn.cursor()
+
+query = """
+    DELETE FROM TableName 
+        WHERE 
+            Gender = 'Male' AND Number_of_Children = '5';
+"""
+
+c.execute(query)
+
+
+conn.commit()
+conn.close()
