@@ -1,4 +1,17 @@
 
+
+#####################################################################################################################
+##1. All of your Python SQLite applications require:
+##<connection_reference>=sqlite3.connect(<SQLite database file)
+##2. Any execution of the SQL must reference the object before executing a query.
+##<cursor reference> = <connection_reference>.cursor()
+##3. Any query that modifies data in the database must use a commit function call after an execute.
+##<connection_reference>.commit()
+##4. All SQLite databases must be closed before exiting the application.
+##<connection_reference>.close()
+#####################################################################################################################
+
+
 #CONNECTING TO A DATABASE
 #
 #
