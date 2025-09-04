@@ -56,6 +56,35 @@ conn.close()
 
 
 
+
+
+######IMPORTING CSV TO READ THE FILE
+
+# Fruit CSV read and query
+
+# Import CSV
+import csv
+
+# Open the file
+try:
+    with open("fruit.csv") as f:
+        reader = csv.reader(f)
+        for line in reader:
+            query = f"""
+                    INSERT INTO Fruit (
+                    Name,
+                    Colour,
+                    Taste
+                    )
+                    VALUES (
+                    '{line[0]}',
+                    '{line[1]}',
+                    '{line[2]}'
+                    );
+                    """
+            print(query)
+except:
+    print("An error occurred reading the file")
 #
 #
 #
