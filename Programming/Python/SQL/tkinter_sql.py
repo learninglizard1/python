@@ -75,3 +75,90 @@ lbl_rows.grid(row = 1, column = 0)
 
 # Tkinter loop
 root.mainloop()
+
+
+
+
+##########################################
+#using treeview to show the fruit database
+
+import sqlite3
+from sqlite3 import Error
+import tkinter as tk
+from tkinter import ttk
+
+# Tkinter setup
+root = tk.Tk()
+root.geometry("600x300")
+root.title("Fruit Database")
+
+# Database path
+database_path = "fruit.db"
+
+####################
+# Database functions
+
+def dbconnect():
+    try:
+        return sqlite3.connect(database_path)
+    except Error as e:
+        print(e)
+        return None
+
+def execute_query(query):
+    conn = dbconnect()
+    cursor = conn.cursor()
+    cursor.execute(query)
+    conn.commit()
+    cursor.close()
+    conn.close()
+
+def select_query(query):
+    conn = dbconnect()
+    cursor = conn.cursor()
+    cursor.execute(query)
+    rows = cursor.fetchall()
+    cursor.close()
+    conn.close()
+    return rows
+
+# Database functions END
+########################
+
+# Get data from database
+rows = select_query("SELECT * FROM Fruit;")
+rows_found = len(rows)
+
+# Set up the Treeview
+tree = ttk.Treeview(root, columns=("ID", "Name", "Color", "Taste"), show='headings')
+
+# Define columns
+tree.heading("ID", text= "ID")
+tree.heading("Name", text="Name")
+tree.heading("Color", text="Color")
+tree.heading("Taste", text="Taste")
+
+# Optionally configure column widths
+tree.column("ID", width= 50)
+tree.column("Name", width=150)
+tree.column("Color", width=150)
+tree.column("Taste", width=150)
+
+for row in rows:
+    tree.insert("", "end", values=( row [0], row[1], row[2], row[3]))
+
+# Pack or grid the treeview
+tree.grid(row=1, column=0, padx=5, pady=5)
+
+#row count
+lbl_count = tk.Label(root, text=f"Total rows: {rows_found}")
+lbl_count.grid(row=0, column=0, sticky="w", padx=10, pady=5)
+
+# Add a scrollbar to our GUI
+scrollbar = ttk.Scrollbar(root, orient=tk.VERTICAL, command=tree.yview)
+tree.configure(yscroll=scrollbar.set)
+scrollbar.grid(row=1, column=1, sticky='ns')
+
+
+root.mainloop()
+
