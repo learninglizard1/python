@@ -252,8 +252,12 @@ def submit():
             query_parts.append(f"(Occupation = '{edit_occupation.get()}')")
 
     # For martial status we only need to check if they've selected an option
-    if(status_var.get() == "Single" or status_var.get() == "Married"):
-        query_parts.append(f"(Marital_Status = '{status_var.get()}')")
+      # For martial status we only need to check if they've selected an option
+    if(status_var.get() == 1):
+        query_parts.append("(Marital_Status = 'Single')")
+    elif (status_var.get() == 2):
+        query_parts.append("(Marital_status = 'Married')")
+
 
     # If at least one query is entered, we need to add WHERE to the query
     if(len(query_parts)):
