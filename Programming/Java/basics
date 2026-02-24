@@ -1,1 +1,127 @@
+//Paddle.java
+public class Paddle {
+	public String name;
+	public int height;
+	public int width;
+	public String color;
 
+}
+
+
+//Main.java
+
+public class Main {
+	public static void main (String[] args) {
+		//Create an object from the Paddle class
+		Paddle Paddle1 = new Paddle();
+		// Set the properties of this object
+		// We should really use setters and getters here but for simplicity
+		// We are just using public variables of the class
+		// See encapsulation
+		Paddle1.name = "Paddle1";
+		Paddle1.height = 63;
+		Paddle1.width = 155;
+		Paddle1.color = "FF00FF";
+		
+		//Create an object from the Paddle class
+		Paddle Paddle2 = new Paddle();
+		// Set properties
+		Paddle2.name = "Paddle2";
+		Paddle2.height = 38;
+		Paddle2.width = 261;
+		Paddle2.color = "66D91";
+		
+		//Display the attributes of these new Objects
+		System.out.println("Name: " + Paddle1.name);
+			System.out.println("height: " + Paddle1.height);
+			System.out.println("width: " + Paddle1.width);
+			System.out.println("color: " + Paddle1.color);
+			System.out.println("");
+			
+			System.out.println("Name: " + Paddle2.name);
+			System.out.println("height: " + Paddle2.height);
+			System.out.println("width: " + Paddle2.width);
+			System.out.println("color: " + Paddle2.color);
+			System.out.println("");
+			
+	}
+}
+
+
+
+
+//Paddle.java
+
+public class Paddle {
+	// variables are now private
+	private String name;
+	private int height;
+	private int width;
+	private String color;
+	
+	//public getter functions
+	
+	public String getName() {
+		return name;
+	}
+	
+	public int getHeight() {
+		return height;
+	}
+	
+	public int getWidth() {
+		return width;
+	}
+	
+	public String getColor() {
+		return color;
+	}
+	
+	// Public setter methods
+	
+	public void setName(String newName) {
+		name = newName;
+	}
+	
+	public void setHeight(int newHeight) {
+		height = newHeight;
+	}
+	
+	public void setWidth(int newWidth) {
+		width = newWidth;
+	}
+	
+	public void setColor(String newColor) {
+		color = newColor;
+	}
+	
+}
+
+
+
+// Main.java 
+
+public class Main {
+	public static void main(String[] args) {
+		System.out.println("Encapsulation example");
+		
+		//create object from class
+		Paddle Paddle1 = new Paddle();
+		
+		// Use setter methods to get object properties
+		Paddle1.setName("Paddle1");
+		Paddle1.setHeight(200);
+		Paddle1.setWidth(500);
+		Paddle1.setColor("FFF00");
+		
+		
+		/*
+		 * Display the attributes of this new Objects using getter
+		 */
+		
+		System.out.println("Name: " + Paddle1.getName());
+		System.out.println("height: " + Paddle1.getHeight());
+		System.out.println("width: " + Paddle1.getWidth());
+		System.out.println("color: " + Paddle1.getColor());
+	}
+}
