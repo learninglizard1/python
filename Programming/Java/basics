@@ -225,4 +225,35 @@ public class DataTypes {
 	
 }
 
+-------------------\\\\\\\\\\\\\\\\\\\\\\\\\/////////////////////////--------------
 
+/*
+* Retrieve input example using/importing Scanner
+*/
+
+
+import java.util.Scanner;
+public class RetrieveInputExample{
+	
+	public static void main(String args[]) {
+		Scanner scan = new Scanner(System.in);
+		
+		System.out.println("Please enter your age in years: ");
+		int age = scan.nextInt();
+		System.out.println("Please enter your weight: ");
+		double weight = scan.nextDouble();
+		System.out.println("Please enter your decimal number: ");
+		float decimal = scan.nextFloat();
+		System.out.println("Please enter your name:");
+		String name = scan.next();
+		System.out.println("Are you male? answer in yes or no:");
+		String gender = scan.next();
+		
+		
+		System.out.println(age);
+		System.out.println(weight);
+		System.out.println(decimal);
+		System.out.println(name);
+		System.out.println(gender);
+	}
+}
